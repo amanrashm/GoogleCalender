@@ -18,7 +18,7 @@ public class Calender_Service_Simply{
     }
 
     public Calender_Entity createEvent(Calender_Entity event) {
-        return (Calender_Entity) eventRepository.save(event);
+        return eventRepository.save(event);
     }
 
     public Calender_Entity editEvent(Long eventId, Calender_Entity eventDetails) {
@@ -28,7 +28,7 @@ public class Calender_Service_Simply{
             Calender_Entity updatedEvent = eventToUpdate.get();
             updatedEvent.setEventName(eventDetails.getEventName());
             updatedEvent.setEventDate(eventDetails.getEventDate());
-            return (Calender_Entity) eventRepository.save(updatedEvent);
+            return eventRepository.save(updatedEvent);
         } else {
             throw new RuntimeException("Event not found with ID: " + eventId);
         }
