@@ -28,7 +28,6 @@ public class Calender_Service_Simply{
             Calender_Entity updatedEvent = eventToUpdate.get();
             updatedEvent.setEventName(eventDetails.getEventName());
             updatedEvent.setEventDate(eventDetails.getEventDate());
-            // Update other details as needed
             return (Calender_Entity) eventRepository.save(updatedEvent);
         } else {
             throw new RuntimeException("Event not found with ID: " + eventId);
