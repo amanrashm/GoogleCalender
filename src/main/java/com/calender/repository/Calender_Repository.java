@@ -9,7 +9,15 @@ import java.util.List;
 
 @Repository
 public interface Calender_Repository extends JpaRepository<Calender_Entity,Long> {
+    /**
+     * @param eventName
+     * @return
+     */
     List<Calender_Entity> findByEventName(String eventName);
+    /**
+     * @param eventDate
+     * @return
+     */
     List<Calender_Entity> findByEventDate(LocalDate eventDate);
 }
 /*

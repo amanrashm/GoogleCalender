@@ -3,9 +3,10 @@ package com.calender.controller;
 import com.calender.entity.Calender_Entity;
 import com.calender.service.Calender_Service_Simply;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -33,11 +34,21 @@ public class Calender_Controller {
         this.eventService = eventService;
     }
 
-    @PostMapping
+    @GetMapping
+    public ModelAndView events(ModelAndView modelAndView){
+        return modelAndView ;
+    }
+
+    @GetMapping("/login")
+    public ModelAndView login(ModelAndView modelAndView){
+        modelAndView.setViewName("login");
+        return modelAndView;
+    }
+    /*@PostMapping
     public ResponseEntity<Calender_Entity> createEvent(@RequestBody Calender_Entity event) {
         Calender_Entity createdEvent = eventService.createEvent(event);
         return ResponseEntity.status(HttpStatus.CREATED).body(createdEvent);
-    }
+    }*/
 
     @PutMapping("/{eventId}")
     public ResponseEntity<Calender_Entity> editEvent(@PathVariable Long eventId, @RequestBody Calender_Entity eventDetails) {
